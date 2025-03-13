@@ -1,0 +1,6 @@
+postgres:
+    port: 5435
+project:
+    name: astronomer-cosmos
+webserver:
+    port: 8081

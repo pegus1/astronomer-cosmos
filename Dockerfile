@@ -10,12 +10,15 @@ RUN /bin/sh -c set -eux; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
 
+# Source virtual environment
+RUN python -m venv dbt_venv && source dbt_venv/bin/activate
+
 RUN pip install -U uv
 
 COPY ./pyproject.toml  ${AIRFLOW_HOME}/astronomer_cosmos/
 COPY ./README.rst  ${AIRFLOW_HOME}/astronomer_cosmos/
-COPY ./cosmos/  ${AIRFLOW_HOME}/astronomer_cosmos/cosmos/
-COPY ./dev/requirements.txt ${AIRFLOW_HOME}/requirements.txt
+COPY ./cosmos  ${AIRFLOW_HOME}/astronomer_cosmos/cosmos/
+COPY requirements.txt ${AIRFLOW_HOME}/requirements.txt
 # install the package in editable mode
 RUN uv pip install --system -e "${AIRFLOW_HOME}/astronomer_cosmos"[dbt-postgres,dbt-databricks,dbt-bigquery] && \
     uv pip install --system -r ${AIRFLOW_HOME}/requirements.txt
