@@ -12,8 +12,8 @@ from cosmos.constants import ExecutionMode
 DEFAULT_DBT_ROOT_PATH = Path(__file__).parent / "dbt"
 DBT_ROOT_PATH = Path(os.getenv("DBT_ROOT_PATH", DEFAULT_DBT_ROOT_PATH))
 
-GCP_PROJECT_ID = "<<<<YOUR_GCP_PROJECT_ID>>>>"
-GCP_LOCATION = "<<<<YOUR_GCP_REGION>>>>"
+GCP_PROJECT_ID = "ingka-dp-sap-dev"
+GCP_LOCATION = "europe-west1"
 GCP_CLOUD_RUN_JOB_NAME = "astronomer-cosmos-example"
 
 project_config = ProjectConfig(

@@ -1,0 +1,11 @@
+version: "3.1"
+services:
+    scheduler:
+        volumes:
+        - /c/Users/SEBRATEC/AppData/Roaming/gcloud/application_default_credentials.json:/usr/local/airflow/gcloud/application_default_credentials.json:rw
+    webserver:
+        volumes:
+        - /c/Users/SEBRATEC/AppData/Roaming/gcloud/application_default_credentials.json:/usr/local/airflow/gcloud/application_default_credentials.json:rw
+    triggerer:
+        volumes:
+        - /c/Users/SEBRATEC/AppData/Roaming/gcloud/application_default_credentials.json:/usr/local/airflow/gcloud/application_default_credentials.json:rw

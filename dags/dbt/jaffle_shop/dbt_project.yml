@@ -3,8 +3,6 @@ name: 'jaffle_shop'
 config-version: 2
 version: '0.1'
 
-profile: 'default'
-
 model-paths: ["models"]
 seed-paths: ["seeds"]
 test-paths: ["tests"]
@@ -24,13 +22,3 @@ models:
       materialized: table
       staging:
         materialized: view
-
-
-seeds:
-  jaffle_shop:
-      +meta:
-        cosmos:
-          profile_config:
-            profile_name: postgres_profile
-            profile_mapping:
-              threads: 2
