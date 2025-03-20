@@ -14,7 +14,7 @@ DBT_ROOT_PATH = Path(os.getenv("DBT_ROOT_PATH", DEFAULT_DBT_ROOT_PATH))
 
 GCP_PROJECT_ID = "ingka-dp-sap-dev"
 GCP_LOCATION = "europe-west1"
-GCP_CLOUD_RUN_JOB_NAME = "astronomer-cosmos-example"
+GCP_CLOUD_RUN_JOB_NAME = "astronomer-cosmos"
 
 project_config = ProjectConfig(
     dbt_project_path=(DBT_ROOT_PATH / "jaffle_shop").as_posix(),

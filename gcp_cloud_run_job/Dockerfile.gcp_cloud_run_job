@@ -1,0 +1,20 @@
+FROM python:3.11
+
+ENV GCP_PROJECT_ID=ingka-dp-sap-dev
+ENV GCP_REGION=europe-west1
+ENV BIGQUERY_DATASET=astronomer_cosmos
+ENV BIGQUERY_PRIORITY=interactive
+ENV BIGQUERY_THREADS=1
+ENV BIGQUERY_TIMEOUT=300
+ENV BIGQUERY_JOB_RETRIES=1
+ENV GCP_AUTH_METHOD=oauth
+
+RUN pip install dbt-core==1.8.2 dbt-bigquery==1.8.1
+
+RUN mkdir /root/.dbt
+
+COPY dags dags
+COPY gcp_cloud_run_job/bigquery_profile.yml /root/.dbt/profiles.yml
+COPY gcp_cloud_run_job/bigquery_profile_dbt_project.yml dags/dbt/jaffle_shop/dbt_project.yml
+
+WORKDIR /dags/dbt/jaffle_shop
